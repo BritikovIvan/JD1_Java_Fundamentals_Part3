@@ -7,8 +7,61 @@ public class Main32 {
 	 */
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int[][] ar = { { 1, 1, 20 }, { 1, 20, 3 }, { 4, -5, 6 }, { 7, 8, 9 } };
+		
+		sort1(ar);
+		print(ar);
+		System.out.println();
+		
+		sort2(ar);
+		print(ar);
+	}
+	
+	public static void print(int[][] ar) {
+		for (int i = 0; i < ar.length; i++) {
+			for (int j = 0; j < ar[i].length; j++) {
+				System.out.printf("%d \t", ar[i][j]);
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void sort1(int[][] ar) {
+		for (int i = 0; i < ar.length; i++) {
+			sort1(ar[i]);
+		}
+	}
+	
+	public static void sort1(int[] ar) {
+		int perm;
+		for (int i = 0; i < ar.length - 1; i++) {
+			for (int j = i + 1; j < ar.length; j++) {
+				if (ar[i] > ar[j]) {
+					perm = ar[i];
+					ar[i] = ar[j];
+					ar[j] = perm;
+				}
+			}
+		}
+	}
+	
+	public static void sort2(int[][] ar) {
+		for (int i = 0; i < ar.length; i++) {
+			sort2(ar[i]);
+		}
+	}
+	
+	public static void sort2(int[] ar) {
+		int perm;
+		for (int i = 0; i < ar.length - 1; i++) {
+			for (int j = i + 1; j < ar.length; j++) {
+				if (ar[i] < ar[j]) {
+					perm = ar[i];
+					ar[i] = ar[j];
+					ar[j] = perm;
+				}
+			}
+		}
 	}
 
 }
